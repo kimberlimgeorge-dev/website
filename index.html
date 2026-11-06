@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>这个圣诞，和Lucky一起寻味 | 瑞幸圣诞活动</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--
+  图片规则：把图片放进 assets 文件夹即可，文件名对应如下（png/webp/jpg/jpeg 都行，不用改代码）
+  背景：hero-bg story-bg drinks-bg gift-bg explore-bg
+  Lucky：lucky1(右侧小助手) lucky2/lucky3(趴在按钮上)
+  其他：cup1 cup2 photo1 photo2 giftbox ginger1 ginger2 ginger3
+  没放的图会自动显示 emoji 占位。
+-->
+<canvas id="snow" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <button class="nav-toggle" aria-label="菜单" aria-expanded="false">☰</button>
+  <nav id="menu">
+    <a href="#home">首页</a>
+    <a href="#story">Lucky的圣诞见闻</a>
+    <a href="#drinks">Lucky的圣诞邀约</a>
+    <a href="#gift">Lucky的圣诞礼物</a>
+    <a href="#explore">圣诞与瑞幸</a>
+  </nav>
+</header>
+
+<section id="home" class="hero" data-bg="hero-bg">
+  <div class="hero-text">
+    <h1>这个圣诞，<br>和Lucky一起寻味</h1>
+    <a href="#story" class="btn" data-peek="lucky2">立即寻味</a>
+  </div>
+</section>
+
+<section id="story" class="panel scene" data-bg="story-bg">
+  <div class="story-card">
+    <h2>Lucky 带你了解姜饼的故事</h2>
+    <p class="sub">流传数百年的圣诞传统小食</p>
+    <div class="slides">
+      <article class="slide active">
+        <h3>节日里的古老甜香</h3>
+        <p>早在中世纪，蜂蜜、生姜与肉桂就被一起揉进面团，成为圣诞桌上的温暖味道。</p>
+        <div class="pic"><span class="slot" data-img="ginger1"><i class="ph">🍯🫚🥣</i></span></div>
+      </article>
+      <article class="slide">
+        <h3>辛香里的圣诞气息</h3>
+        <p>生姜带来温暖辛香，肉桂增添甜蜜气息，烤好的姜饼带着麦香、蜜香与节日香气。</p>
+        <div class="pic"><span class="slot" data-img="ginger2"><i class="ph">🔥🍪🔥</i></span></div>
+      </article>
+      <article class="slide">
+        <h3>挂在树上的祝福</h3>
+        <p>人们把姜饼捏成星星、铃铛和小人形状，挂上圣诞树，也装进礼物袋，传递圣诞温情。</p>
+        <div class="pic"><span class="slot" data-img="ginger3"><i class="ph">🎄⭐🔔</i></span></div>
+      </article>
+    </div>
+    <div class="dots"></div>
+    <button class="more">点击 > 继续了解姜饼</button>
+    <button class="arrow prev" aria-label="上一张">‹</button>
+    <button class="arrow next" aria-label="下一张">›</button>
+  </div>
+</section>
+
+<section id="drinks" class="panel drinks" data-bg="drinks-bg">
+  <div class="script">Merry Christmas</div>
+  <div class="bubble">跟着Lucky来<br>品尝圣诞限定<br>咖啡吧~</div>
+  <div class="drink-list">
+    <article class="drink">
+      <div class="cup"><span class="slot" data-img="cup2" data-alt="雪夜姜饼拿铁"><i class="ph">☕</i></span></div>
+      <div>
+        <h3>雪夜姜饼拿铁</h3>
+        <p>姜饼与肉桂气息融入丝滑拿铁，圣诞夜限定风味，暖手又暖心</p>
+        <div class="buy"><strong>¥22</strong><button class="btn order" data-peek="lucky2" data-name="雪夜姜饼拿铁">立即下单</button></div>
+      </div>
+    </article>
+    <article class="drink">
+      <div class="cup"><span class="slot" data-img="cup1" data-alt="圣诞红丝绒拿铁"><i class="ph">🥤</i></span></div>
+      <div>
+        <h3>圣诞红丝绒拿铁</h3>
+        <p>红丝绒可可与浓郁咖啡交织，奶油雪顶点缀，限定红杯包装随手送出</p>
+        <div class="buy"><strong>¥21</strong><button class="btn order" data-peek="lucky2" data-name="圣诞红丝绒拿铁">立即下单</button></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="gift" class="panel gift" data-bg="gift-bg">
+  <div class="gift-title">叮咚！你的<br>圣诞盲盒<br>已降落</div>
+  <p class="gift-note">Lucky把雪橇里的魔法变成了礼物</p>
+  <div class="gift-body">
+    <p class="limit">限定圣诞杯套 /<br>隐藏款Lucky盲盒<br>下单即可马上获得</p>
+    <button class="box" id="box" aria-label="点击拆开盲盒"><span class="slot" data-img="giftbox"><i class="ph">🎁</i></span><span>点我拆盲盒</span></button>
+    <div class="box-result" id="boxResult" aria-live="polite"></div>
+    <button class="btn order" data-peek="lucky3" data-name="圣诞盲盒">立即下单</button>
+  </div>
+</section>
+
+<section id="explore" class="panel explore" data-bg="explore-bg">
+  <div class="photos">
+    <figure class="photo p1"><span class="slot" data-img="photo1"><i class="ph">🧣</i></span></figure>
+    <figure class="photo p2"><span class="slot" data-img="photo2"><i class="ph">🎅</i></span></figure>
+  </div>
+  <div class="filter-tip" id="filterTip" role="button" tabindex="0">点击右侧<br>即可获得<br>同款滤镜!</div>
+  <a href="#home" class="btn explore-btn" data-peek="lucky2">立即探索</a>
+</section>
+
+<footer>© Lucky Christmas · 仅为活动页面设计稿演示</footer>
+
+<!-- 右侧Lucky小助手 -->
+<div class="hint" id="hint">需要帮忙吗？</div>
+<button class="fab" id="fab" aria-label="打开Lucky小助手" aria-expanded="false"><span class="slot" data-img="lucky1"><i class="ph">🦌</i></span></button>
+<aside class="help" id="help" aria-hidden="true" aria-label="Lucky小助手">
+  <header><b>Lucky 小助手</b><button id="helpClose" aria-label="关闭">✕</button></header>
+  <p>Hi，我是Lucky！想去哪儿逛逛？</p>
+  <div class="quick">
+    <button data-go="#drinks">看限定饮品</button>
+    <button data-go="#gift">去拆盲盒</button>
+    <button data-go="#explore">领同款滤镜</button>
+    <button data-go="#home">回到顶部</button>
+  </div>
+  <details><summary>圣诞盲盒怎么获得？</summary><p>下单即可马上获得限定圣诞杯套和隐藏款Lucky盲盒。</p></details>
+  <details><summary>有哪些圣诞限定饮品？</summary><p>雪夜姜饼拿铁 ¥22，圣诞红丝绒拿铁 ¥21。</p></details>
+  <details><summary>同款滤镜在哪里领？</summary><p>拉到「圣诞与瑞幸」，点击右侧的气泡就能获得。</p></details>
+  <details><summary>姜饼为什么是圣诞传统？</summary><p>从中世纪起，蜂蜜、生姜和肉桂的甜香就属于圣诞，到「Lucky的圣诞见闻」看看故事吧。</p></details>
+</aside>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="script.js"></script>
+</body>
+</html>

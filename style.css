@@ -1,0 +1,190 @@
+:root{--navy:#1c2a8f;--night:#0f1647;--gold:#c8893a;--gold2:#ffd98a;--green:#1f4a2c;--red:#c0282d;--cream:#fff4dc;--font:"ZCOOL KuaiLe","PingFang SC","Microsoft YaHei",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--navy);color:var(--cream);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0}
+:focus-visible{outline:3px solid var(--gold2);outline-offset:3px}
+#snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+
+/* 导航 */
+.nav{position:fixed;top:0;left:50%;transform:translateX(-50%);z-index:60;width:min(94%,1000px);background:rgba(240,226,190,.95);border-radius:0 0 28px 28px;color:#3b2a14}
+.nav nav{display:flex;justify-content:space-around;padding:14px 10px}
+.nav a{padding:2px 10px;border-radius:12px;transition:.2s}
+.nav a:hover,.nav a.on{background:var(--gold);color:#fff}
+.nav-toggle{display:none;background:none;font-size:26px;padding:8px 16px;color:#3b2a14}
+
+/* 按钮 */
+.btn{display:inline-block;background:var(--gold);color:#fff;padding:10px 30px;border-radius:30px;font-size:1.1rem;box-shadow:0 4px 0 #8a5a22;transition:.15s}
+.btn:hover{transform:translateY(-2px);background:#d89a4a}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #8a5a22}
+
+/* 首屏 */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 8% 80px;overflow:hidden;background:linear-gradient(180deg,#0b1040 0%,#2b2f9a 45%,#e08a5a 90%)}
+.stars{position:absolute;inset:0;background:radial-gradient(2px 2px at 20% 30%,#fff,transparent),radial-gradient(2px 2px at 60% 15%,#fff,transparent),radial-gradient(3px 3px at 80% 40%,#ffe9a8,transparent),radial-gradient(2px 2px at 35% 60%,#fff,transparent),radial-gradient(2px 2px at 90% 10%,#fff,transparent);animation:twinkle 4s infinite alternate}
+@keyframes twinkle{to{opacity:.4}}
+.hero-text{position:relative;z-index:2}
+.hero h1{font-size:clamp(2rem,5.5vw,4rem);letter-spacing:.12em;line-height:1.5;margin-bottom:28px;text-shadow:0 3px 12px rgba(0,0,40,.6)}
+.sleigh{position:absolute;right:6%;top:18%;font-size:clamp(4rem,12vw,9rem);animation:fly 6s ease-in-out infinite;filter:drop-shadow(0 0 20px rgba(255,200,80,.7))}
+.sleigh .lucky{position:relative;top:-.6em;left:.4em}
+@keyframes fly{50%{transform:translate(-20px,-18px) rotate(-4deg)}}
+.hills{position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(180deg,transparent,#f3ecff 130%);clip-path:polygon(0 60%,15% 35%,35% 60%,55% 30%,75% 55%,100% 25%,100% 100%,0 100%)}
+
+/* 通用面板 */
+.panel{position:relative;width:min(92%,1000px);margin:48px auto;border-radius:36px;padding:40px;box-shadow:12px 12px 0 rgba(140,150,230,.35);overflow:hidden}
+.scene,.gift,.explore{background:linear-gradient(160deg,#171d6b,#3a2a85 60%,#8a4a7a)}
+
+/* 姜饼轮播 */
+.scene{min-height:520px;display:flex;align-items:center}
+.story-card{position:relative;width:min(100%,420px);background:rgba(25,32,90,.9);border:3px solid #6b6fb8;border-radius:24px;padding:24px 44px;text-align:center;z-index:2}
+.story-card h2{font-size:1.25rem;color:var(--gold2)}
+.sub{font-size:.9rem;margin-bottom:14px}
+.slides{position:relative;min-height:230px}
+.slide{display:none;animation:fade .5s}
+.slide.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateX(20px)}}
+.slide h3{margin-bottom:6px}
+.slide p{font-size:.9rem;margin-bottom:10px}
+.pic{font-size:2.6rem;background:rgba(0,0,0,.3);border-radius:12px;padding:14px;letter-spacing:8px}
+.dots{display:flex;gap:8px;justify-content:center;margin:12px 0}
+.dots i{width:9px;height:9px;border-radius:50%;background:#7f84c7;cursor:pointer}
+.dots i.on{background:var(--gold2);transform:scale(1.3)}
+.more{background:var(--gold);color:#fff;padding:5px 18px;border-radius:20px;font-size:.85rem}
+.arrow{position:absolute;top:50%;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font-size:22px;line-height:1}
+.prev{left:6px}.next{right:6px}
+.deco-tree{position:absolute;right:6%;bottom:10%;font-size:clamp(6rem,18vw,12rem);line-height:1}
+.deco-tree .lucky{font-size:.45em;position:absolute;left:-30%;bottom:0}
+
+/* 饮品 */
+.drinks{background:linear-gradient(160deg,#1b2370,#2f3a9f);padding-top:70px}
+.script{position:absolute;top:14px;left:30px;font-size:1.8rem;color:var(--gold2);font-style:italic;transform:rotate(-3deg)}
+.bubble{position:absolute;top:20px;right:30px;background:#2c5a36;border:2px dashed var(--gold2);border-radius:50%;padding:18px 20px;font-size:.9rem;text-align:center;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+.drink-list{display:grid;gap:22px;max-width:620px}
+.drink{display:grid;grid-template-columns:150px 1fr;gap:18px;background:var(--green);border:3px solid #123;border-radius:18px;padding:16px;transition:.25s}
+.drink:hover{transform:translateX(8px) rotate(-.5deg)}
+.cup{display:grid;place-items:center;font-size:4rem;background:linear-gradient(#5aa2d8,#1e3b7a);border-radius:12px;position:relative}
+.cup.red{background:linear-gradient(#e8f0ff,#9ac)}
+.cup small{position:absolute;left:4px;bottom:2px;font-size:1.6rem}
+.drink h3{color:var(--gold2)}
+.drink p{font-size:.85rem;margin:4px 0 10px}
+.buy{display:flex;justify-content:space-between;align-items:center}
+.buy strong{font-size:1.4rem}
+.buy .btn{padding:6px 22px;font-size:.95rem}
+
+/* 盲盒 */
+.gift{display:grid;gap:20px;grid-template-columns:1fr 1fr;align-items:center}
+.gift-title{grid-row:span 2;font-size:clamp(1.8rem,4.5vw,3rem);line-height:1.3;color:var(--gold2);background:var(--green);border:3px dashed var(--gold2);border-radius:24px;padding:20px 24px;transform:rotate(-3deg);width:fit-content}
+.gift-note{text-align:right;font-size:1.1rem}
+.gift-body{text-align:center;display:grid;gap:12px;justify-items:center}
+.limit{font-size:1.1rem}
+.box{background:none;color:var(--cream);font-size:5rem;line-height:1;display:grid;justify-items:center;animation:shake 2.5s infinite}
+.box span{font-size:.9rem;font-family:var(--font)}
+.box.open{animation:pop .6s}
+@keyframes shake{0%,80%,100%{transform:rotate(0)}85%{transform:rotate(-8deg)}90%{transform:rotate(8deg)}95%{transform:rotate(-5deg)}}
+@keyframes pop{50%{transform:scale(1.4) rotate(10deg)}}
+.box-result{min-height:2em;color:var(--gold2)}
+
+/* 圣诞与瑞幸 */
+.explore{min-height:460px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:26px}
+.photos{display:flex;gap:20px}
+.photo{width:130px;height:190px;border-radius:10px;background:linear-gradient(#b23a48,#5a1a2a);display:grid;place-items:center;font-size:3.5rem;position:relative;transition:filter .4s,transform .3s}
+.photo:hover{transform:scale(1.06)}
+.photo figcaption{position:absolute;bottom:6px;font-size:.75rem}
+.p2{outline:2px solid var(--gold2);outline-offset:6px}
+.filter-tip{background:var(--green);border:2px dashed var(--gold2);border-radius:50%;width:120px;height:120px;display:grid;place-items:center;text-align:center;font-size:.9rem;cursor:pointer;transition:.3s}
+.filter-tip:hover{transform:rotate(-8deg) scale(1.05)}
+.explore.filtered .photo{filter:sepia(.5) saturate(1.8) hue-rotate(-15deg) brightness(1.1) drop-shadow(0 0 12px #ffd98a)}
+.explore.filtered .filter-tip{background:var(--gold)}
+footer{text-align:center;padding:30px 10px 50px;font-size:.8rem;opacity:.7}
+.toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,40px);background:var(--green);border:2px solid var(--gold2);padding:10px 24px;border-radius:30px;opacity:0;transition:.3s;z-index:99;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* 手机 */
+@media(max-width:720px){
+  .nav{width:100%;border-radius:0 0 20px 20px}
+  .nav-toggle{display:block}
+  .nav nav{display:none;flex-direction:column;gap:4px;padding:0 16px 14px}
+  .nav nav.open{display:flex}
+  .hero{padding:110px 6% 60px;align-items:flex-start}
+  .sleigh{top:auto;bottom:16%;right:4%}
+  .panel{padding:22px 16px;margin:28px auto;border-radius:26px}
+  .story-card{padding:20px 38px}
+  .deco-tree{display:none}
+  .drink{grid-template-columns:1fr}
+  .cup{height:110px}
+  .bubble{position:static;margin:0 auto 16px;width:fit-content;border-radius:24px}
+  .script{position:static;margin-bottom:8px}
+  .gift{grid-template-columns:1fr}
+  .gift-title{grid-row:auto;margin:0 auto}
+  .gift-note{text-align:center}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+/* ================= v2 新增：图片槽位、背景图、Lucky 互动 ================= */
+.slot{display:grid;place-items:center;width:100%;height:100%}
+.slot img{max-width:100%;max-height:100%;object-fit:contain}
+.ph{font-style:normal}
+.slot.filled .ph{display:none}
+.has-bg{background-size:cover;background-repeat:no-repeat}
+.hero.has-bg{background-position:78% center}
+.scene.has-bg{background-position:82% center}
+.drinks.has-bg{background-position:85% center}
+.gift.has-bg,.explore.has-bg{background-position:80% center}
+
+.pic .slot img{width:100%;max-height:130px;object-fit:cover;border-radius:8px}
+.drink{grid-template-columns:minmax(140px,42%) 1fr}
+.cup,.cup.red{background:#0d1a3a;overflow:hidden;aspect-ratio:4/3;align-self:center}
+.cup .slot img{width:100%;height:100%;object-fit:cover}
+.drinks{min-height:640px}
+.photo{width:150px;height:210px;background:linear-gradient(#b23a48,#5a1a2a);overflow:hidden}
+.photo .slot img{width:100%;height:100%;object-fit:cover}
+
+.gift{display:flex;flex-direction:column;align-items:flex-start;gap:18px;min-height:560px}
+.gift-title{grid-row:auto}
+.gift-note,.gift-body{text-align:left;justify-items:start}
+.box{position:relative}
+.box .slot img{width:130px}
+.cf{position:absolute;top:30%;left:50%;font-size:1.6rem;pointer-events:none;animation:burst 1s forwards}
+@keyframes burst{to{transform:translate(var(--x),var(--y)) rotate(200deg);opacity:0}}
+
+/* Lucky 趴在按钮上 */
+.peek{position:relative;display:inline-block}
+.peek .btn{position:relative;z-index:1}
+.peeker{position:absolute;left:50%;bottom:62%;width:84px;z-index:0;pointer-events:none;opacity:0;transform:translate(-50%,55%) scale(.6);transition:transform .4s cubic-bezier(.3,1.6,.5,1),opacity .25s}
+.peek:hover .peeker,.peek:focus-within .peeker,.peek.on .peeker{opacity:1;transform:translate(-50%,0) scale(1)}
+.peek.pop .peeker{animation:nod .6s}
+@keyframes nod{40%{transform:translate(-50%,-16px) rotate(-8deg)}70%{transform:translate(-50%,-4px) rotate(5deg)}}
+
+/* 右侧 Lucky 小助手 */
+.fab{position:fixed;right:-6px;bottom:96px;width:96px;height:96px;z-index:70;background:none;font-size:3.5rem;display:grid;place-items:center;animation:sway 3.5s ease-in-out infinite;filter:drop-shadow(0 4px 8px rgba(0,0,0,.45));transition:translate .25s}
+.fab:hover{translate:-8px 0}
+@keyframes sway{50%{transform:rotate(-6deg)}}
+.hint{position:fixed;right:84px;bottom:150px;background:var(--cream);color:#3b2a14;padding:6px 14px;border-radius:16px 16px 4px 16px;opacity:0;transform:translateY(6px);transition:.3s;z-index:70;pointer-events:none}
+.hint.show{opacity:1;transform:none}
+.help{position:fixed;right:90px;bottom:60px;width:340px;max-height:75vh;overflow:auto;background:var(--cream);color:#3b2a14;border:3px solid var(--gold);border-radius:22px;padding:16px;z-index:80;opacity:0;visibility:hidden;transform:translateY(20px) scale(.96);transition:.3s}
+.help.open{opacity:1;visibility:visible;transform:none}
+.help header{display:flex;justify-content:space-between;align-items:center;font-size:1.2rem;margin-bottom:6px}
+.help header button{background:none;font-size:1.3rem;color:inherit}
+.quick{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.quick button{background:var(--green);color:var(--cream);padding:6px 14px;border-radius:16px}
+.help details{border-top:1px dashed #b99;padding:8px 0}
+.help summary{cursor:pointer}
+.help details p{font-size:.9rem;margin-top:4px}
+@media(max-width:720px){
+  .drink{grid-template-columns:1fr}
+  .cup{height:auto}
+  .fab{width:74px;height:74px;bottom:84px}
+  .hint{right:66px;bottom:130px}
+  .help{left:10px;right:10px;bottom:10px;width:auto;max-height:70vh}
+  .peeker{width:70px}
+  .hero.has-bg{background-position:85% center}
+  .photo{width:120px;height:170px}
+}
+
+/* ================= v3：Lucky 贴近按钮 ================= */
+/* --sink 越大，Lucky 越往下贴近/压进按钮；想更近就把 14px 改大，想更远就改小 */
+.peek{display:inline-flex;line-height:1}
+.peek .btn{line-height:1.6}
+.peeker{--sink:14px;width:72px;bottom:calc(100% - var(--sink));transform:translate(-50%,45%) scale(.7);transform-origin:50% 100%}
+@media(max-width:720px){.peeker{width:62px}}
